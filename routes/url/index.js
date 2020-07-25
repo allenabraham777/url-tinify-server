@@ -20,7 +20,7 @@ module.exports.register = (server, options) => {
       console.log(longUrl);
       const response = await Url.findOne({longUrl}).select('shortUrl -_id')
       if(response) {
-        return h.response({shortUrl: `${process.env.HOST}${response.shortUrl}`}).code(200)
+        return h.response({shortUrl: `${process.env.HOST}/${response.shortUrl}`}).code(200)
       }
 
       const url = new Url({
@@ -29,7 +29,7 @@ module.exports.register = (server, options) => {
 
       try {
         const {shortUrl} = await url.save()
-        return h.response({shortUrl: `${process.env.HOST}${shortUrl}`}).code(200)  
+        return h.response({shortUrl: `${process.env.HOST}/${shortUrl}`}).code(200)  
       }
       catch(error) {
         return h.response({error: "Internal Server Error"}).code(500)  
