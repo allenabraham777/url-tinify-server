@@ -20,7 +20,7 @@ module.exports.register = (server, options) => {
       console.log(longUrl);
       const response = await Url.findOne({longUrl}).select('shortUrl -_id')
       if(response) {
-        return h.response({shortUrl: `${process.env.HOST}${process.env.shortUrl}`}).code(200)
+        return h.response({shortUrl: `${process.env.HOST}${shortUrl}`}).code(200)
       }
 
       const url = new Url({
