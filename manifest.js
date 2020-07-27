@@ -26,7 +26,7 @@ module.exports = {
               'email': 'allenabraham777@gmail.com'
             },
           },
-          'schemes': ['http']
+          'schemes': ['http', 'https']
         }
       },
       {
