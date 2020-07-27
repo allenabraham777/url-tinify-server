@@ -20,6 +20,10 @@ module.exports.register = (server, options) => {
     handler: async (request, h) => {
       const {longUrl} = request.payload
 
+      if(longUrl.includes(process.env.HOST)) {
+        return h.response({message: "Please enter a valid Url"}).code(422)  
+      }
+
       const url = new Url({
         longUrl
       })
