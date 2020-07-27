@@ -8,6 +8,7 @@ module.exports.register = (server, options) => {
     method: 'POST',
     path: '/generate',
     config: {
+      auth: false,
       tags: ['api'],
       validate: {
         payload: Joi.object({
@@ -17,11 +18,6 @@ module.exports.register = (server, options) => {
     },
     handler: async (request, h) => {
       const {longUrl} = request.payload
-      console.log(longUrl);
-      const response = await Url.findOne({longUrl}).select('shortUrl -_id')
-      if(response) {
-        return h.response({shortUrl: `${process.env.HOST}/${response.shortUrl}`}).code(200)
-      }
 
       const url = new Url({
         longUrl
@@ -32,7 +28,7 @@ module.exports.register = (server, options) => {
         return h.response({shortUrl: `${process.env.HOST}/${shortUrl}`}).code(200)  
       }
       catch(error) {
-        return h.response({error: "Internal Server Error"}).code(500)  
+        return h.response({message: "Internal Server Error"}).code(500)  
       }
     }
   })

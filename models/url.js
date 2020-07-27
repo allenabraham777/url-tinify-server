@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const shortid = require('shortid');
-const { date } = require('@hapi/joi');
  
 const urlSchema = new Schema({
   longUrl: {
@@ -12,6 +11,11 @@ const urlSchema = new Schema({
     type: String,
     required: true,
     default: shortid.generate
+  },
+  clicks: {
+    type: Number,
+    required: true,
+    default: 0
   },
   date: {
     type: Date,

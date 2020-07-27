@@ -36,6 +36,9 @@ module.exports = {
         plugin: require('@hapi/inert'),
       },
       {
+        plugin: require('./plugins/auth')
+      },
+      {
         plugin: require('./routes'),
       },
       {
@@ -43,6 +46,15 @@ module.exports = {
         routes: {
           prefix: '/url'
         }
+      },
+      {
+        plugin: require('./routes/user'),
+        routes: {
+          prefix: '/user/url'
+        }
+      },
+      {
+        plugin: require('./routes/auth')
       }
     ]
   }
