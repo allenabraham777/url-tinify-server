@@ -25,13 +25,13 @@ module.exports.register = (server, options) => {
         })
         
         try {
-          const {_id, shortUrl} = await url.save()
+          const {_id, shortUrl, longUrl, clicks} = await url.save()
           const userUrl = new UserUrl({
             user: id,
             url: _id
           })
           await userUrl.save()
-          return h.response({shortUrl: `${process.env.HOST}/${shortUrl}`}).code(200)  
+          return h.response({shortUrl: `${process.env.HOST}/${shortUrl}`,_id, longUrl, clicks}).code(200)  
         }
         catch(error) {
           return h.response({message: "Internal Server Error"}).code(500)  
@@ -57,6 +57,7 @@ module.exports.register = (server, options) => {
           find = find.map((url) => {
             return {
               _id: url._id,
+              url: url.longUrl,
               shortUrl: `${process.env.HOST}/${url.shortUrl}`,
               clicks: url.clicks
             }
