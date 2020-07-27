@@ -11,6 +11,8 @@ module.exports.register = (server, options) => {
     path: '/signup',
     config: {
       auth: false,
+      tags: ['api', 'auth'],
+      description: 'Create a user',
       validate: {
         payload: Joi.object({
           name: Joi.string().min(6).required(),
@@ -52,6 +54,8 @@ module.exports.register = (server, options) => {
     path: '/login',
     config: {
       auth: false,
+      tags: ['api', 'user'],
+      description: 'Login to the system',
       validate: {
         payload: Joi.object({
           email: Joi.string().min(6).pattern(new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)).required(),

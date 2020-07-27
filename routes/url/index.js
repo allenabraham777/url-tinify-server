@@ -9,7 +9,8 @@ module.exports.register = (server, options) => {
     path: '/generate',
     config: {
       auth: false,
-      tags: ['api'],
+      tags: ['api', 'public'],
+      description: 'Generate tinified url - Available only to non logged in used',
       validate: {
         payload: Joi.object({
           longUrl: Joi.string().pattern(new RegExp(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/)).required()

@@ -9,7 +9,7 @@ module.exports.register = (server, options) => {
       config: {
         auth: false,
         tags: ['api', 'index'],
-        description: 'Redirect to Home Page',
+        description: 'Redirect to cutcut.cf client page',
       },
       handler: async (request, h) => {
         return h.redirect('https://client.cutcut.cf')

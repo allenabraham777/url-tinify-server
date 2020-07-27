@@ -9,7 +9,8 @@ module.exports.register = (server, options) => {
       path: '/generate',
       config: {
         auth: 'jwt',
-        tags: ['api'],
+        tags: ['api', 'user'],
+        description: 'Generate tinified url - Available only to logged in user',
         validate: {
           payload: Joi.object({
             longUrl: Joi.string().pattern(new RegExp(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/)).required()
@@ -43,7 +44,8 @@ module.exports.register = (server, options) => {
       path: '/all',
       config: {
         auth: 'jwt',
-        tags: ['api'],
+        tags: ['api', 'user'],
+        description: 'Get list of all tinified url created by the logged in user',
       },
       handler: async (request, h) => {
         const {id} = request.auth.credentials
