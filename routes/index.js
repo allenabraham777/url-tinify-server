@@ -31,9 +31,9 @@ module.exports.register = (server, options) => {
       handler: async (request, h) => {
         const {shortUrl} = request.params
         const response = await Url.findOne({shortUrl})
-        response.clicks++
-        response.save()
         if(response) {
+          response.clicks++
+          response.save()
           return h.redirect(response.longUrl)
         }
         else {
