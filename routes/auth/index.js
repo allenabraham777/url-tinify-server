@@ -54,7 +54,7 @@ module.exports.register = (server, options) => {
     path: '/login',
     config: {
       auth: false,
-      tags: ['api', 'user'],
+      tags: ['api', 'auth'],
       description: 'Login to the system',
       validate: {
         payload: Joi.object({

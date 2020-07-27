@@ -17,7 +17,7 @@ module.exports = {
         plugin: require('hapi-swagger'),
         options: {
           'grouping': 'tags',
-          'host': 'localhost:3001',
+          'host': process.env.HOST,
           'info': {
             'title': 'API Documentation',
             'version': '1.0.0',
