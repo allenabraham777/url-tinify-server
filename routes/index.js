@@ -37,7 +37,7 @@ module.exports.register = (server, options) => {
           return h.redirect(response.longUrl)
         }
         else {
-          return h.response({message: "Not Found"}).code(404)
+          return h.redirect('https://client.cutcut.cf/404')
         }
       }
     }

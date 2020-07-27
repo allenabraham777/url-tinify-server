@@ -55,6 +55,9 @@ module.exports = {
       },
       {
         plugin: require('./routes/auth')
+      },
+      {
+        plugin: require('./routes/404')
       }
     ]
   }
