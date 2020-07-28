@@ -29,5 +29,7 @@ npm run dev
 
 The project server is deployed using Google Cloud Platform - Micro Instance.
 
+Visit [API Documentation](https://cutcut.cf/documentation) for more details on routes.
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
