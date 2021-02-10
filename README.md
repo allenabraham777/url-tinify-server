@@ -16,6 +16,14 @@ npm install
 ```
 ### Running the project
 
+Create a .env file and add the following values
+```
+PORT = 3001
+HOST= 'localhost:3001'
+DB_CONNECT= YOUR MONGODB URL
+SECRET = SECRET CODE FOR SALTING PASSWORDS
+```
+
 You must have [nodemon](https://www.npmjs.com/package/nodemon) installed in your system
 ```
 npm install -g nodemon
