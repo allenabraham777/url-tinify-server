@@ -12,7 +12,7 @@ module.exports.register = (server, options) => {
         description: 'Redirect to cutcut.cf client page',
       },
       handler: async (request, h) => {
-        return h.redirect('https://client.cutcut.cf')
+        return h.redirect('https://client.chipit.tk')
       }
     },
     {
